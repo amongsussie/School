@@ -14,14 +14,14 @@
 
     body {
       font-family: 'Roboto', Arial, sans-serif;
-      background: #f8f9fa;
+      background: #0d5c4d url('background.png') center center / cover no-repeat fixed;
       color: #202124;
       min-height: 100vh;
     }
 
     /* Top bar */
     header {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
       height: 64px;
       display: flex;
       align-items: center;
@@ -30,6 +30,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .logo {
@@ -58,14 +59,15 @@
     main {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 32px 24px;
+      padding: 40px 24px;
     }
 
     .section-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 500;
-      margin-bottom: 20px;
-      color: #202124;
+      margin-bottom: 24px;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     /* Class cards grid */
@@ -79,7 +81,7 @@
       background: white;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       transition: box-shadow 0.2s, transform 0.2s;
       text-decoration: none;
       color: inherit;
@@ -89,8 +91,8 @@
     }
 
     .class-card:hover {
-      box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transform: translateY(-4px);
     }
 
     .card-header {
@@ -124,18 +126,18 @@
       color: #5f6368;
     }
 
-    /* Different header colors like real Classroom */
+    /* Different header colors */
     .craft { background: linear-gradient(135deg, #1a73e8, #174ea6); }
     .blox  { background: linear-gradient(135deg, #34a853, #137333); }
     .tube  { background: linear-gradient(135deg, #ea4335, #c5221f); }
     .race  { background: linear-gradient(135deg, #fbbc04, #e37400); }
 
-    /* Simple footer */
     footer {
       text-align: center;
       padding: 40px 20px;
-      color: #5f6368;
+      color: rgba(255,255,255,0.85);
       font-size: 13px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -153,7 +155,6 @@
 
     <div class="classes">
 
-      <!-- SchoolCraft -->
       <a href="https://amongsussie.github.io/SchoolCraft/" class="class-card" target="_blank">
         <div class="card-header craft">
           <h2>SchoolCraft</h2>
@@ -165,7 +166,6 @@
         </div>
       </a>
 
-      <!-- SchoolBlox -->
       <a href="https://amongsussie.github.io/SchoolBlox/" class="class-card" target="_blank">
         <div class="card-header blox">
           <h2>SchoolBlox</h2>
@@ -177,7 +177,6 @@
         </div>
       </a>
 
-      <!-- SchoolTube -->
       <a href="https://amongsussie.github.io/SchoolTube/" class="class-card" target="_blank">
         <div class="card-header tube">
           <h2>SchoolTube</h2>
@@ -189,7 +188,6 @@
         </div>
       </a>
 
-      <!-- SchoolRace -->
       <a href="https://amongsussie.github.io/SchoolRace/" class="class-card" target="_blank">
         <div class="card-header race">
           <h2>SchoolRace</h2>
