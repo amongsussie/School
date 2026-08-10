@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classroom - Student Portal</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://images.seeklogo.com/logo-png/47/2/google-classroom-logo-png_seeklogo-479750.png">
+  <link rel="apple-touch-icon" href="https://images.seeklogo.com/logo-png/47/2/google-classroom-logo-png_seeklogo-479750.png">
+  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -50,7 +55,6 @@
       font-weight: 700;
       font-size: 18px;
     }
-
     /* ===== NOTIFICATION BELL ===== */
     .header-right {
       display: flex;
@@ -92,7 +96,6 @@
       align-items: center;
       justify-content: center;
     }
-
     /* Dropdown */
     .notif-dropdown {
       position: absolute;
@@ -153,7 +156,6 @@
       color: #80868b;
       margin-top: 6px;
     }
-
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -236,7 +238,6 @@
       <div class="logo-icon">C</div>
       <span>Classroom</span>
     </div>
-
     <div class="header-right">
       <div class="notif-bell" id="notifBell">
         <!-- Bell icon -->
@@ -245,14 +246,13 @@
         </svg>
         <span class="notif-badge">1</span>
       </div>
-
       <!-- Dropdown -->
       <div class="notif-dropdown" id="notifDropdown">
         <div class="notif-header">Notifications</div>
         <div class="notif-item">
           <div class="notif-title">New Teacher Recommendation</div>
           <div class="notif-body">
-            Check out this week's special picks → 
+            Check out this week's special picks →
             <a href="https://amongsussie.github.io/Teachers-Picks/" target="_blank">Teachers Picks</a>
           </div>
           <div class="notif-time">Just now</div>
@@ -260,7 +260,6 @@
       </div>
     </div>
   </header>
-
   <main>
     <h1 class="section-title">Your classes</h1>
     <div class="classes">
@@ -356,25 +355,20 @@
       </a>
     </div>
   </main>
-
   <footer>
     Classroom • For educational use
   </footer>
-
   <script>
     const bell = document.getElementById('notifBell');
     const dropdown = document.getElementById('notifDropdown');
-
     bell.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdown.classList.toggle('show');
     });
-
     // Close when clicking outside
     document.addEventListener('click', () => {
       dropdown.classList.remove('show');
     });
-
     // Prevent closing when clicking inside the dropdown
     dropdown.addEventListener('click', (e) => {
       e.stopPropagation();
