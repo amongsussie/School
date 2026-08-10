@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Portal - Your Classes</title>
-  
+ 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://images.seeklogo.com/logo-png/47/2/google-classroom-logo-png_seeklogo-479750.png">
   <link rel="apple-touch-icon" href="https://images.seeklogo.com/logo-png/47/2/google-classroom-logo-png_seeklogo-479750.png">
-  
+ 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -233,6 +233,28 @@
   </style>
 </head>
 <body>
+
+  <!-- ===== ACCESS CHECK ===== -->
+  <script>
+    (function () {
+      const allowedReferrers = [
+        'https://amongsussie.github.io/login',
+        'https://login.studentportal.workers.dev'
+      ];
+
+      const referrer = document.referrer;
+      const isAllowed = allowedReferrers.some(url => referrer.startsWith(url));
+
+      if (!isAllowed) {
+        if (window.location.hostname.includes('workers.dev')) {
+          window.location.replace('https://login.studentportal.workers.dev/');
+        } else {
+          window.location.replace('https://amongsussie.github.io/login/');
+        }
+      }
+    })();
+  </script>
+
   <header>
     <div class="logo">
       <div class="logo-icon">C</div>
