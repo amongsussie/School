@@ -22,6 +22,7 @@
       height: 64px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 24px;
       border-bottom: 1px solid #e0e0e0;
       position: sticky;
@@ -49,6 +50,110 @@
       font-weight: 700;
       font-size: 18px;
     }
+
+    /* ===== NOTIFICATION BELL ===== */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+    .notif-bell {
+      position: relative;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .notif-bell:hover {
+      background: #f1f3f4;
+    }
+    .notif-bell svg {
+      width: 24px;
+      height: 24px;
+      fill: #5f6368;
+    }
+    .notif-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #ea4335;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Dropdown */
+    .notif-dropdown {
+      position: absolute;
+      top: 52px;
+      right: 0;
+      width: 340px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      border: 1px solid #e0e0e0;
+      display: none;
+      overflow: hidden;
+      z-index: 200;
+    }
+    .notif-dropdown.show {
+      display: block;
+    }
+    .notif-header {
+      padding: 14px 16px;
+      font-weight: 500;
+      font-size: 15px;
+      border-bottom: 1px solid #e8eaed;
+      color: #202124;
+    }
+    .notif-item {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f3f4;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .notif-item:hover {
+      background: #f8f9fa;
+    }
+    .notif-item:last-child {
+      border-bottom: none;
+    }
+    .notif-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #202124;
+    }
+    .notif-body {
+      font-size: 13px;
+      color: #5f6368;
+      line-height: 1.4;
+    }
+    .notif-body a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .notif-body a:hover {
+      text-decoration: underline;
+    }
+    .notif-time {
+      font-size: 12px;
+      color: #80868b;
+      margin-top: 6px;
+    }
+
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -131,7 +236,31 @@
       <div class="logo-icon">C</div>
       <span>Classroom</span>
     </div>
+
+    <div class="header-right">
+      <div class="notif-bell" id="notifBell">
+        <!-- Bell icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+        </svg>
+        <span class="notif-badge">1</span>
+      </div>
+
+      <!-- Dropdown -->
+      <div class="notif-dropdown" id="notifDropdown">
+        <div class="notif-header">Notifications</div>
+        <div class="notif-item">
+          <div class="notif-title">New Teacher Recommendation</div>
+          <div class="notif-body">
+            Check out this week's special picks → 
+            <a href="https://amongsussie.github.io/Teachers-Picks/" target="_blank">Teachers Picks</a>
+          </div>
+          <div class="notif-time">Just now</div>
+        </div>
+      </div>
+    </div>
   </header>
+
   <main>
     <h1 class="section-title">Your classes</h1>
     <div class="classes">
@@ -227,8 +356,29 @@
       </a>
     </div>
   </main>
+
   <footer>
     Classroom • For educational use
   </footer>
+
+  <script>
+    const bell = document.getElementById('notifBell');
+    const dropdown = document.getElementById('notifDropdown');
+
+    bell.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('show');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('show');
+    });
+
+    // Prevent closing when clicking inside the dropdown
+    dropdown.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
 </body>
 </html>
