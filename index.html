@@ -238,7 +238,7 @@
         'https://amongsussie.github.io/login',
         'https://amongsussie.github.io/homework',
         'https://homework.studentportal.workers.dev/',
-        'studentportal-login.vercel.app'
+        'https://sign-in.studentportal.deno.net/'
         'https://login.studentportal.workers.dev'
       ];
       const referrer = document.referrer;
@@ -246,8 +246,8 @@
       if (!isAllowed) {
         if (window.location.hostname.includes('workers.dev')) {
           window.location.replace('https://login.studentportal.workers.dev/');
-          if (window.location.hostname.includes('vercel.app')) {
-          window.location.replace('https://studentportal-login.vercel.app/');
+          if (window.location.hostname.includes('deno.net')) {
+          window.location.replace('https://sign-in.studentportal.deno.net/');
         } else {
           window.location.replace('https://amongsussie.github.io/login/');
         }
