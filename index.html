@@ -238,6 +238,7 @@
         'https://amongsussie.github.io/login',
         'https://amongsussie.github.io/homework',
         'https://homework.studentportal.workers.dev/',
+        'studentportal-login.vercel.app'
         'https://login.studentportal.workers.dev'
       ];
       const referrer = document.referrer;
@@ -245,6 +246,8 @@
       if (!isAllowed) {
         if (window.location.hostname.includes('workers.dev')) {
           window.location.replace('https://login.studentportal.workers.dev/');
+          if (window.location.hostname.includes('vercel.app')) {
+          window.location.replace('https://studentportal-login.vercel.app/');
         } else {
           window.location.replace('https://amongsussie.github.io/login/');
         }
